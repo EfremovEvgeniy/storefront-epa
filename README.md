@@ -126,7 +126,13 @@ renders as an `ErrorBar`).
 4. **`<UscreenProvider locale="ru">` does not load `ru.json` itself** — the next README's prop
    table implies `locale` alone switches the UI; in fact `messages` must carry the locale file
    (react's README makes this explicit). Handled by merging `ru.json` with the overrides.
-5. **`CategoryDetailData` (react) drops `contentCount`**, so a "N titles" counter on the category
+5. **`setLocale` from `@uscreentv/next` cannot be used as a form action directly.** The README's
+   locale-switcher example (`<form action={setLocale}>`) renders an action id that is never
+   registered in the server-reference manifest — the package module carrying the inline
+   `"use server"` is also bundled into the client layer — so every submit fails with
+   `UnrecognizedActionError`. **Workaround:** an app-owned action (`src/i18n/actions.ts`,
+   `"use server"` at file level) that delegates to the package's `setLocale`.
+6. **`CategoryDetailData` (react) drops `contentCount`**, so a "N titles" counter on the category
    page could only come from an untyped field; left out there, shown on the catalog directory where
    the SDK type has it.
 
