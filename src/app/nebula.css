@@ -1,0 +1,268 @@
+/* NEBULA brand (pink, built around #FFA6D1) — retunes @uscreentv/react's theme tokens (loaded after theme.css).
+   Every colour is a light-dark() pair per docs/theming.md; the store itself is pinned to the dark
+   scheme below, so the dark half is the brand and the light half a sane fallback. */
+
+:root {
+  /* The store is dark, full stop. light-dark() then always resolves to the second value. */
+  color-scheme: dark;
+
+  /* Brand literals for NEBULA's own elements; package components never read these. */
+  --nebula-bg: #16080f;
+  --nebula-surface: #26111c;
+  --nebula-accent: #ffa6d1;
+  --nebula-accent-2: #ff6fb5;
+
+  /* Surfaces: page, raised panels (modal, dropdown, card), wells. */
+  --utv-color-surface-default: light-dark(#fff3f9, #16080f);
+  --utv-color-surface-raised: light-dark(#ffffff, #26111c);
+  --utv-color-surface-sunken: light-dark(#16080f0d, #ffa6d10f);
+  --utv-color-backdrop: light-dark(#16080f66, #16080fcc);
+
+  /* Text. */
+  --utv-color-content-default: light-dark(#16080f, #fff3f9);
+  --utv-color-content-secondary: light-dark(#16080fa6, #ffd5e9b3);
+  --utv-color-content-tertiary: light-dark(#16080f73, #ffd5e980);
+  --utv-color-content-selected: light-dark(#16080f, #ffa6d1);
+  --utv-color-content-reference: light-dark(#d4176a, #ffa6d1);
+
+  /* The primary fill (buttons, checkbox) is the neon accent; its content is the page background.
+     Hover/active are separate tokens and have to be named. */
+  --utv-color-container-default: light-dark(#e0538f, #ffa6d1);
+  --utv-color-container-default-hover: light-dark(#c9467d, #ffbcdc);
+  --utv-color-container-default-active: light-dark(#b23a6c, #f58fc2);
+  --utv-color-content-inverted: light-dark(#ffffff, #16080f);
+  --utv-color-container-inverted: light-dark(#16080f, #16080f);
+
+  /* Subtle fills, also the shimmer stops. */
+  --utv-color-container-secondary: light-dark(#16080f0d, #ffa6d114);
+  --utv-color-container-secondary-hover: light-dark(#16080f1a, #ffa6d129);
+  --utv-color-container-secondary-active: light-dark(#16080f26, #ffa6d13d);
+  --utv-color-container-selected: light-dark(#ffa6d140, #ffa6d12e);
+  --utv-color-container-selected-hover: light-dark(#ffa6d159, #ffa6d145);
+  --utv-color-container-disabled: light-dark(#16080f0d, #ffa6d114);
+
+  /* The second accent: initials avatars and the highlight tint. */
+  --utv-color-container-accent: light-dark(#ff6fb5, #ff6fb5);
+  --utv-color-content-on-accent: light-dark(#ffffff, #16080f);
+  --utv-color-container-highlight: light-dark(#ffa6d14d, #ffa6d140);
+
+  /* Strokes. */
+  --utv-color-border-default: light-dark(#16080f1a, #ffa6d12b);
+  --utv-color-border-strong: light-dark(#16080f40, #ffa6d159);
+
+  /* Focus ring in the second accent (feeds --utv-color-focus and both outlines). */
+  --utv-color-focus-solid: #ffa6d1;
+
+  /* Few, small radii. */
+  --utv-radius-xs: 1px;
+  --utv-radius-sm: 2px;
+  --utv-radius-md: 4px;
+  --utv-radius-lg: 6px;
+
+  /* Type: same family, one step larger across the scale. */
+  --utv-text-2xs: 400 12px / 16px var(--utv-font);
+  --utv-text-2xs-medium: 500 12px / 16px var(--utv-font);
+  --utv-text-xs: 400 13px / 18px var(--utv-font);
+  --utv-text-xs-size: 13px;
+  --utv-text-sm: 400 15px / 22px var(--utv-font);
+  --utv-text-sm-medium: 500 15px / 22px var(--utv-font);
+  --utv-text-md: 400 18px / 28px var(--utv-font);
+  --utv-text-md-medium: 500 18px / 28px var(--utv-font);
+  --utv-text-md-medium-narrow: 500 18px / 24px var(--utv-font);
+  --utv-text-lg: 400 20px / 28px var(--utv-font);
+  --utv-text-lg-medium: 500 20px / 28px var(--utv-font);
+  --utv-text-h4: 500 22px / 28px var(--utv-font);
+  --utv-text-h3: 600 28px / 36px var(--utv-font);
+  --utv-text-h2: 500 36px / 44px var(--utv-font);
+  --utv-text-h1: 500 46px / 56px var(--utv-font);
+  --utv-text-display: 600 64px / 72px var(--utv-font);
+
+  /* Per-component handles. */
+  --utv-content-card-radius: var(--utv-radius-md);
+  --utv-button-radius: var(--utv-radius-md);
+  --utv-store-header-min-height: 76px;
+  --utv-store-header-border: 1px solid var(--utv-color-border-default);
+  --utv-catalog-featured-slider-radius: var(--utv-radius-lg);
+}
+
+/* Mirror the theme's narrow-screen step-down, one step up like the rest. */
+@media (width < 640px) {
+  :root {
+    --utv-text-h4: 500 20px / 26px var(--utv-font);
+    --utv-text-h3: 600 22px / 28px var(--utv-font);
+    --utv-text-h2: 600 28px / 34px var(--utv-font);
+    --utv-text-h1: 600 32px / 38px var(--utv-font);
+    --utv-text-display: 700 38px / 44px var(--utv-font);
+  }
+}
+
+/* The page ground — theme.css leaves it to the consumer. */
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--utv-color-surface-default);
+  color: var(--utv-color-content-default);
+  font: var(--utv-text-md);
+  letter-spacing: var(--utv-text-md-tracking);
+}
+
+.nebula-page {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+}
+
+.nebula-page__main {
+  flex: 1;
+}
+
+/* ---- NEBULA's own elements. Rules on our own elements need one class; every value is a token. */
+
+.nebula-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--utv-spacing-xs);
+  font: var(--utv-text-lg-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--utv-color-content-default);
+}
+
+.nebula-wordmark__mark {
+  width: 28px;
+  height: 28px;
+  color: var(--nebula-accent);
+}
+
+.nebula-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--utv-spacing-3xl);
+  border-bottom: 1px solid var(--utv-color-border-default);
+  background:
+    radial-gradient(60% 120% at 85% 0%, color-mix(in srgb, var(--nebula-accent-2) 22%, transparent), transparent 70%),
+    radial-gradient(50% 100% at 10% 100%, color-mix(in srgb, var(--nebula-accent) 18%, transparent), transparent 70%),
+    var(--utv-color-surface-raised);
+}
+
+.nebula-hero__eyebrow {
+  display: inline-block;
+  padding: var(--utv-spacing-3xs) var(--utv-spacing-xs);
+  border: 1px solid var(--nebula-accent);
+  border-radius: var(--utv-radius-sm);
+  font: var(--utv-text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--nebula-accent);
+}
+
+.nebula-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--utv-spacing-sm);
+}
+
+/* The custom tile: a wrapper that owns the badge's placement and the author line. */
+.nebula-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--utv-spacing-2xs);
+}
+
+.nebula-card__new {
+  position: absolute;
+  top: var(--utv-spacing-xs);
+  left: var(--utv-spacing-xs);
+  z-index: 1;
+  pointer-events: none;
+  padding: var(--utv-spacing-3xs) var(--utv-spacing-xs);
+  border-radius: var(--utv-radius-sm);
+  background: var(--nebula-accent-2);
+  color: #16080f;
+  font: var(--utv-text-2xs-medium);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nebula-card__authors {
+  --utv-author-list-content: var(--utv-color-content-secondary);
+}
+
+/* Category page: two large tiles, then the dense grid. */
+.nebula-lead {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--utv-spacing-md);
+}
+
+@media (width < 720px) {
+  .nebula-lead {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.nebula-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--utv-spacing-sm);
+}
+
+.nebula-section-title__count {
+  color: var(--utv-color-content-tertiary);
+  font: var(--utv-text-sm);
+}
+
+/* Catalog directory: category tiles. */
+.nebula-category-tile__count {
+  color: var(--utv-color-content-secondary);
+  font: var(--utv-text-sm);
+}
+
+/* Locale switcher: two chip buttons in a form. */
+.nebula-locale {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--utv-spacing-2xs);
+}
+
+.nebula-locale__button {
+  all: unset;
+  cursor: pointer;
+  padding: var(--utv-spacing-3xs) var(--utv-spacing-xs);
+  border: 1px solid var(--utv-color-border-default);
+  border-radius: var(--utv-radius-sm);
+  color: var(--utv-color-content-secondary);
+  font: var(--utv-text-sm-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nebula-locale__button:hover {
+  color: var(--utv-color-content-default);
+  border-color: var(--utv-color-border-strong);
+}
+
+.nebula-locale__button[aria-pressed="true"] {
+  color: var(--utv-color-content-inverted);
+  background: var(--utv-color-container-default);
+  border-color: transparent;
+}
+
+.nebula-locale__button:focus-visible {
+  outline: var(--utv-outline-focus);
+  outline-offset: var(--utv-outline-focus-offset);
+}
+
+.nebula-notice {
+  padding-top: var(--utv-spacing-md);
+}
+
+/* Sign-in: the card centred on the page, with room above and below. */
+.nebula-auth {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--utv-spacing-4xl) var(--utv-spacing-md);
+}
