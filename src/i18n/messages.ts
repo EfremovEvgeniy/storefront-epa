@@ -4,13 +4,13 @@ import ru from "@uscreentv/localization/locales/ru.json";
 import type { AppLocale } from "./locales";
 
 /**
- * NEBULA's own strings, under a namespace no component owns. The `en` tree is also the type
- * `t("nebula.…")` is checked against — see `localization.d.ts`.
+ * Uhodim's own strings, under a namespace no component owns. The `en` tree is also the type
+ * `t("uhodim.…")` is checked against — see `localization.d.ts`.
  */
 export const custom = {
   en: {
-    nebula: {
-      tagline: "Films, series and live shows from the far side of the screen.",
+    uhodim: {
+      tagline: "Films, series and live shows — all on Uhodim.",
       heroTitle: "Watch beyond the ordinary",
       heroCta: "Start watching",
       heroBrowse: "Browse the catalog",
@@ -23,7 +23,7 @@ export const custom = {
       categoryMore: "Everything else",
       newBadge: "NEW",
       language: "Language",
-      searchTitle: "Search NEBULA",
+      searchTitle: "Search Uhodim",
       searchIntro: "Find a film, a series or a live show by name.",
       footerCatalog: "Catalog",
       footerSearch: "Search",
@@ -32,8 +32,8 @@ export const custom = {
     },
   },
   ru: {
-    nebula: {
-      tagline: "Фильмы, сериалы и прямые эфиры с другой стороны экрана.",
+    uhodim: {
+      tagline: "Фильмы, сериалы и прямые эфиры — всё на Uhodim.",
       heroTitle: "Смотрите за пределами обычного",
       heroCta: "Начать смотреть",
       heroBrowse: "Открыть каталог",
@@ -51,7 +51,7 @@ export const custom = {
       categoryMore: "Всё остальное",
       newBadge: "NEW",
       language: "Язык",
-      searchTitle: "Поиск по NEBULA",
+      searchTitle: "Поиск по Uhodim",
       searchIntro: "Найдите фильм, сериал или эфир по названию.",
       footerCatalog: "Каталог",
       footerSearch: "Поиск",
@@ -61,20 +61,20 @@ export const custom = {
   },
 } as const;
 
-/** Built-in strings NEBULA replaces, per locale. Keys not listed keep the package defaults. */
+/** Built-in strings Uhodim replaces, per locale. Keys not listed keep the package defaults. */
 const overrides: Record<AppLocale, PartialMessages> = {
   en: {
-    search: { noResults: "Nothing in the nebula matches that. Try another title." },
-    storeHeader: { join: "Join NEBULA" },
-    content: { subscribe: "Unlock with NEBULA" },
-    contentGrid: { empty: "Nothing has landed in this category yet." },
+    search: { noResults: "Nothing in the uhodim matches that. Try another title." },
+    storeHeader: { join: "Join Uhodim" },
+    content: { subscribe: "Unlock with Uhodim" },
+    contentGrid: { empty: "Nothing in this category yet." },
     catalog: { continueWatching: "Jump back in" },
   },
   ru: {
-    search: { noResults: "В туманности ничего не нашлось. Попробуйте другое название." },
-    storeHeader: { join: "Вступить в NEBULA" },
-    content: { subscribe: "Открыть с NEBULA" },
-    contentGrid: { empty: "В этой категории пока ничего не приземлилось." },
+    search: { noResults: "На Uhodim ничего не нашлось. Попробуйте другое название." },
+    storeHeader: { join: "Вступить в Uhodim" },
+    content: { subscribe: "Открыть с Uhodim" },
+    contentGrid: { empty: "В этой категории пока ничего нет." },
     catalog: { continueWatching: "Вернуться к просмотру" },
   },
 };

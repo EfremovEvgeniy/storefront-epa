@@ -3,7 +3,7 @@
 import { UscreenErrorPage, type UscreenErrorPageProps } from "@uscreentv/next";
 
 import "@uscreentv/react/themes/theme.css";
-import "./nebula.css";
+import "./uhodim.css";
 
 /**
  * Catches what `error.tsx` cannot: a failure in the root layout itself — the header's store read

@@ -1,4 +1,4 @@
-# NEBULA — storefront on Uscreen Headless SDK
+# Uhodim — storefront on Uscreen Headless SDK
 
 A Next.js (App Router) video storefront built on the official Uscreen Headless packages
 `@uscreentv/next`, `@uscreentv/react`, `@uscreentv/sdk` (+ `@uscreentv/localization` for the `ru`
@@ -39,7 +39,7 @@ Other scripts: `npm run build` + `npm start` (production build), `npm run typech
    | ------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
    | `USCREEN_PUBLISHABLE_KEY` | **yes**  | `usc_pub_live_…` from Uscreen → Settings → Headless API                                                                |
    | `USCREEN_API_URL`         | no       | Only to point at a non-production Uscreen API; leave unset for production                                              |
-   | `NEXT_PUBLIC_SITE_URL`    | no       | Canonical origin for `og:url` / canonical links, e.g. `https://nebula.example.com`. Unset, it falls back to Vercel's `VERCEL_PROJECT_PRODUCTION_URL` (set automatically) |
+   | `NEXT_PUBLIC_SITE_URL`    | no       | Canonical origin for `og:url` / canonical links, e.g. `https://uhodim.example.com`. Unset, it falls back to Vercel's `VERCEL_PROJECT_PRODUCTION_URL` (set automatically) |
 
    `VERCEL_PROJECT_PRODUCTION_URL` and `x-vercel-ip-timezone` (the viewer's time zone header used
    in `uscreen.config.ts`) are provided by Vercel itself — nothing to add.
@@ -74,27 +74,27 @@ renders as an `ErrorBar`).
 
 ### What was done with the packages' own mechanisms
 
-- **Brand / dark theme** — `src/app/nebula.css`, loaded after `theme.css`: `color-scheme: dark`
+- **Brand / dark theme** — `src/app/uhodim.css`, loaded after `theme.css`: `color-scheme: dark`
   pins the scheme, every colour is a `light-dark()` pair, surfaces `#0B0F1A` / `#141B2E`, primary
   fill `#7CFF6B` (with its `-hover`/`-active` and `content-inverted` partner named, as
   `theming.md` insists), second accent `#FF3D81` on focus ring, references, avatar accent and
   highlight; radii 1–6px; the whole `--utv-text-*` scale one step larger, with the narrow-screen
   block mirrored. Per-component **handles** for the card radius, button radius, header height and
   border, and the featured-slider radius. No package file touched, no `!important`, no
-  descendant selectors into package markup — NEBULA's own elements are styled by their own single
+  descendant selectors into package markup — Uhodim's own elements are styled by their own single
   classes using theme tokens only.
-- **Custom card** — `NebulaCard` passed as `parts={{ Card }}` to both `<Catalog>` and
+- **Custom card** — `UhodimCard` passed as `parts={{ Card }}` to both `<Catalog>` and
   `<Category>`. It composes the library `<ContentCard>` (link, artwork, the duration/episode badge on
   the poster, lock, resume progress) following the store-wide look via `useCardAppearance()`, adds a
   NEW chip and an `<AuthorList>` under the title, and draws `<ContentCardSkeleton>` when handed
   `{ skeleton: true }` — so the grid's paging, loading placeholders and retry footer keep working.
 - **Category page in its own layout** — `<Category>` keeps fetching, paging, `notFound()` and the
-  error boundary; `children` is `NebulaCategoryBody` (client), composed from `useCategory()`,
+  error boundary; `children` is `UhodimCategoryBody` (client), composed from `useCategory()`,
   `useFeatureLinks().categoryContentHref`, `CategoryHeader`, `ContentGrid`, `LoadMoreFooter`: first
   two items as large tiles with details over the artwork, then the dense grid. No direct API calls.
 - **Localization** — `en` + `ru`, switcher as a Server Component form on the package's
   `setLocale` action; `<UscreenProvider locale messages>` gets a module-scope (stable) merged
-  tree per locale; own strings under a `nebula` namespace, type-checked through `CustomMessages`
+  tree per locale; own strings under a `uhodim` namespace, type-checked through `CustomMessages`
   declaration merging; replaced built-ins on both languages: `search.noResults`, `storeHeader.join`,
   `content.subscribe`, `contentGrid.empty`, `catalog.continueWatching`. Server Components translate
   through `createTranslator` from `@uscreentv/localization`.
@@ -126,7 +126,13 @@ renders as an `ErrorBar`).
 4. **`<UscreenProvider locale="ru">` does not load `ru.json` itself** — the next README's prop
    table implies `locale` alone switches the UI; in fact `messages` must carry the locale file
    (react's README makes this explicit). Handled by merging `ru.json` with the overrides.
-5. **`CategoryDetailData` (react) drops `contentCount`**, so a "N titles" counter on the category
+5. **`setLocale` from `@uscreentv/next` cannot be used as a form action directly.** The README's
+   locale-switcher example (`<form action={setLocale}>`) renders an action id that is never
+   registered in the server-reference manifest — the package module carrying the inline
+   `"use server"` is also bundled into the client layer — so every submit fails with
+   `UnrecognizedActionError`. **Workaround:** an app-owned action (`src/i18n/actions.ts`,
+   `"use server"` at file level) that delegates to the package's `setLocale`.
+6. **`CategoryDetailData` (react) drops `contentCount`**, so a "N titles" counter on the category
    page could only come from an untyped field; left out there, shown on the catalog directory where
    the SDK type has it.
 

@@ -6,7 +6,7 @@ import { getT } from "@/i18n/server";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getT();
-  return { title: t("nebula.catalogTitle"), description: t("nebula.catalogIntro") };
+  return { title: t("uhodim.catalogTitle"), description: t("uhodim.catalogIntro") };
 }
 
 /**
@@ -26,10 +26,10 @@ export default async function CatalogPage() {
         <Stack gap="xl">
           <Stack gap="sm">
             <Heading level={2} as="h1">
-              {t("nebula.catalogTitle")}
+              {t("uhodim.catalogTitle")}
             </Heading>
             <Text variant="large" maxLineChars={60}>
-              {t("nebula.catalogIntro")}
+              {t("uhodim.catalogIntro")}
             </Text>
           </Stack>
 
@@ -46,14 +46,14 @@ export default async function CatalogPage() {
                         category.imageUrl ?? category.contents.items[0]?.imageUrls.horizontal ?? null,
                     }}
                   />
-                  <span className="nebula-category-tile__count">
-                    {t("nebula.categoryCount", { count: category.contentCount })}
+                  <span className="uhodim-category-tile__count">
+                    {t("uhodim.categoryCount", { count: category.contentCount })}
                   </span>
                 </Stack>
               ))}
             </ContentGrid>
           ) : (
-            <Text>{t("nebula.catalogEmpty")}</Text>
+            <Text>{t("uhodim.catalogEmpty")}</Text>
           )}
         </Stack>
       </Container>

@@ -1,8 +1,8 @@
 import { Category, generateCategoryMetadata } from "@uscreentv/next";
 import type { Metadata } from "next";
 
-import { NebulaCard } from "@/components/NebulaCard";
-import { NebulaCategoryBody } from "@/components/NebulaCategoryBody";
+import { UhodimCard } from "@/components/UhodimCard";
+import { UhodimCategoryBody } from "@/components/UhodimCategoryBody";
 
 type Props = { params: Promise<{ permalink: string }> };
 
@@ -15,16 +15,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 /**
- * One category in NEBULA's own layout. The wired `<Category>` still fetches, pages, maps an unknown
+ * One category in Uhodim's own layout. The wired `<Category>` still fetches, pages, maps an unknown
  * id to `notFound()` and contains failures; `children` replace only the body, composed client-side
- * from `useCategory()` — see NebulaCategoryBody.
+ * from `useCategory()` — see UhodimCategoryBody.
  */
 export default async function CategoryPage({ params }: Props) {
   const { permalink } = await params;
 
   return (
-    <Category id={permalink} perPage={PER_PAGE} parts={{ Card: NebulaCard }}>
-      <NebulaCategoryBody />
+    <Category id={permalink} perPage={PER_PAGE} parts={{ Card: UhodimCard }}>
+      <UhodimCategoryBody />
     </Category>
   );
 }

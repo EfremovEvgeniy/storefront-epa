@@ -15,8 +15,8 @@ export function HandoffNotice() {
   if (params.get("handoff_error") !== "refused") return null;
 
   return (
-    <Container className="nebula-notice">
-      <ErrorBar>{t("nebula.handoffRefused")}</ErrorBar>
+    <Container className="uhodim-notice">
+      <ErrorBar>{t("uhodim.handoffRefused")}</ErrorBar>
     </Container>
   );
 }

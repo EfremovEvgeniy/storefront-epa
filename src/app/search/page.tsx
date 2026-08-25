@@ -6,7 +6,7 @@ import { getT } from "@/i18n/server";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getT();
-  return { title: t("nebula.searchTitle"), description: t("nebula.searchIntro") };
+  return { title: t("uhodim.searchTitle"), description: t("uhodim.searchIntro") };
 }
 
 /**
@@ -24,10 +24,10 @@ export default async function SearchPage() {
         <Stack gap="xl">
           <Stack gap="sm">
             <Heading level={2} as="h1">
-              {t("nebula.searchTitle")}
+              {t("uhodim.searchTitle")}
             </Heading>
             <Text variant="large" maxLineChars={60}>
-              {t("nebula.searchIntro")}
+              {t("uhodim.searchIntro")}
             </Text>
           </Stack>
           <Search perPage={24}>

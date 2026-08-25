@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import "@uscreentv/react/themes/theme.css";
-import "./nebula.css";
+import "./uhodim.css";
 
 import { HandoffNotice } from "@/components/HandoffNotice";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -21,8 +21,8 @@ function siteUrl(): URL | undefined {
 
 export const metadata: Metadata = {
   metadataBase: siteUrl(),
-  title: { default: "NEBULA", template: "%s · NEBULA" },
-  description: "Films, series and live shows from the far side of the screen.",
+  title: { default: "Uhodim", template: "%s · Uhodim" },
+  description: "Films, series and live shows — all on Uhodim.",
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -32,12 +32,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang={locale}>
       <body>
         <UscreenProvider locale={locale} messages={messagesFor(locale)} routes={uscreen.routes}>
-          <div className="nebula-page">
+          <div className="uhodim-page">
             <SiteHeader />
             <Suspense fallback={null}>
               <HandoffNotice />
             </Suspense>
-            <main className="nebula-page__main">{children}</main>
+            <main className="uhodim-page__main">{children}</main>
             <SiteFooter />
           </div>
         </UscreenProvider>
