@@ -1,4 +1,4 @@
-/* NEBULA brand — retunes @uscreentv/react's theme tokens (loaded after theme.css).
+/* NEBULA brand (pink, built around #FFA6D1) — retunes @uscreentv/react's theme tokens (loaded after theme.css).
    Every colour is a light-dark() pair per docs/theming.md; the store itself is pinned to the dark
    scheme below, so the dark half is the brand and the light half a sane fallback. */
 
@@ -7,51 +7,51 @@
   color-scheme: dark;
 
   /* Brand literals for NEBULA's own elements; package components never read these. */
-  --nebula-bg: #0b0f1a;
-  --nebula-surface: #141b2e;
-  --nebula-accent: #7cff6b;
-  --nebula-accent-2: #ff3d81;
+  --nebula-bg: #16080f;
+  --nebula-surface: #26111c;
+  --nebula-accent: #ffa6d1;
+  --nebula-accent-2: #ff6fb5;
 
   /* Surfaces: page, raised panels (modal, dropdown, card), wells. */
-  --utv-color-surface-default: light-dark(#f3f5fb, #0b0f1a);
-  --utv-color-surface-raised: light-dark(#ffffff, #141b2e);
-  --utv-color-surface-sunken: light-dark(#0b0f1a0d, #ffffff0a);
-  --utv-color-backdrop: light-dark(#0b0f1a66, #0b0f1acc);
+  --utv-color-surface-default: light-dark(#fff3f9, #16080f);
+  --utv-color-surface-raised: light-dark(#ffffff, #26111c);
+  --utv-color-surface-sunken: light-dark(#16080f0d, #ffa6d10f);
+  --utv-color-backdrop: light-dark(#16080f66, #16080fcc);
 
   /* Text. */
-  --utv-color-content-default: light-dark(#0b0f1a, #f4f6ff);
-  --utv-color-content-secondary: light-dark(#0b0f1aa6, #f4f6ffa6);
-  --utv-color-content-tertiary: light-dark(#0b0f1a73, #f4f6ff73);
-  --utv-color-content-selected: light-dark(#0b0f1a, #7cff6b);
-  --utv-color-content-reference: light-dark(#d4176a, #ff3d81);
+  --utv-color-content-default: light-dark(#16080f, #fff3f9);
+  --utv-color-content-secondary: light-dark(#16080fa6, #ffd5e9b3);
+  --utv-color-content-tertiary: light-dark(#16080f73, #ffd5e980);
+  --utv-color-content-selected: light-dark(#16080f, #ffa6d1);
+  --utv-color-content-reference: light-dark(#d4176a, #ffa6d1);
 
   /* The primary fill (buttons, checkbox) is the neon accent; its content is the page background.
      Hover/active are separate tokens and have to be named. */
-  --utv-color-container-default: light-dark(#2fb31f, #7cff6b);
-  --utv-color-container-default-hover: light-dark(#289b1a, #94ff86);
-  --utv-color-container-default-active: light-dark(#228516, #5fe84f);
-  --utv-color-content-inverted: light-dark(#ffffff, #0b0f1a);
-  --utv-color-container-inverted: light-dark(#0b0f1a, #0b0f1a);
+  --utv-color-container-default: light-dark(#e0538f, #ffa6d1);
+  --utv-color-container-default-hover: light-dark(#c9467d, #ffbcdc);
+  --utv-color-container-default-active: light-dark(#b23a6c, #f58fc2);
+  --utv-color-content-inverted: light-dark(#ffffff, #16080f);
+  --utv-color-container-inverted: light-dark(#16080f, #16080f);
 
   /* Subtle fills, also the shimmer stops. */
-  --utv-color-container-secondary: light-dark(#0b0f1a0d, #ffffff0f);
-  --utv-color-container-secondary-hover: light-dark(#0b0f1a1a, #ffffff24);
-  --utv-color-container-secondary-active: light-dark(#0b0f1a26, #ffffff33);
-  --utv-color-container-selected: light-dark(#7cff6b40, #7cff6b26);
-  --utv-color-container-selected-hover: light-dark(#7cff6b59, #7cff6b40);
-  --utv-color-container-disabled: light-dark(#0b0f1a0d, #ffffff0f);
+  --utv-color-container-secondary: light-dark(#16080f0d, #ffa6d114);
+  --utv-color-container-secondary-hover: light-dark(#16080f1a, #ffa6d129);
+  --utv-color-container-secondary-active: light-dark(#16080f26, #ffa6d13d);
+  --utv-color-container-selected: light-dark(#ffa6d140, #ffa6d12e);
+  --utv-color-container-selected-hover: light-dark(#ffa6d159, #ffa6d145);
+  --utv-color-container-disabled: light-dark(#16080f0d, #ffa6d114);
 
   /* The second accent: initials avatars and the highlight tint. */
-  --utv-color-container-accent: light-dark(#ff3d81, #ff3d81);
-  --utv-color-content-on-accent: light-dark(#ffffff, #0b0f1a);
-  --utv-color-container-highlight: light-dark(#ff3d8133, #ff3d8140);
+  --utv-color-container-accent: light-dark(#ff6fb5, #ff6fb5);
+  --utv-color-content-on-accent: light-dark(#ffffff, #16080f);
+  --utv-color-container-highlight: light-dark(#ffa6d14d, #ffa6d140);
 
   /* Strokes. */
-  --utv-color-border-default: light-dark(#0b0f1a1a, #ffffff1f);
-  --utv-color-border-strong: light-dark(#0b0f1a40, #ffffff40);
+  --utv-color-border-default: light-dark(#16080f1a, #ffa6d12b);
+  --utv-color-border-strong: light-dark(#16080f40, #ffa6d159);
 
   /* Focus ring in the second accent (feeds --utv-color-focus and both outlines). */
-  --utv-color-focus-solid: #ff3d81;
+  --utv-color-focus-solid: #ffa6d1;
 
   /* Few, small radii. */
   --utv-radius-xs: 1px;
@@ -180,7 +180,7 @@ body {
   padding: var(--utv-spacing-3xs) var(--utv-spacing-xs);
   border-radius: var(--utv-radius-sm);
   background: var(--nebula-accent-2);
-  color: #0b0f1a;
+  color: #16080f;
   font: var(--utv-text-2xs-medium);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -257,4 +257,12 @@ body {
 
 .nebula-notice {
   padding-top: var(--utv-spacing-md);
+}
+
+/* Sign-in: the card centred on the page, with room above and below. */
+.nebula-auth {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--utv-spacing-4xl) var(--utv-spacing-md);
 }
