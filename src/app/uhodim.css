@@ -1,4 +1,4 @@
-/* NEBULA brand (pink, built around #FFA6D1) — retunes @uscreentv/react's theme tokens (loaded after theme.css).
+/* Uhodim brand (pink, built around #FFA6D1) — retunes @uscreentv/react's theme tokens (loaded after theme.css).
    Every colour is a light-dark() pair per docs/theming.md; the store itself is pinned to the dark
    scheme below, so the dark half is the brand and the light half a sane fallback. */
 
@@ -6,11 +6,11 @@
   /* The store is dark, full stop. light-dark() then always resolves to the second value. */
   color-scheme: dark;
 
-  /* Brand literals for NEBULA's own elements; package components never read these. */
-  --nebula-bg: #16080f;
-  --nebula-surface: #26111c;
-  --nebula-accent: #ffa6d1;
-  --nebula-accent-2: #ff6fb5;
+  /* Brand literals for Uhodim's own elements; package components never read these. */
+  --uhodim-bg: #16080f;
+  --uhodim-surface: #26111c;
+  --uhodim-accent: #ffa6d1;
+  --uhodim-accent-2: #ff6fb5;
 
   /* Surfaces: page, raised panels (modal, dropdown, card), wells. */
   --utv-color-surface-default: light-dark(#fff3f9, #16080f);
@@ -107,19 +107,19 @@ body {
   letter-spacing: var(--utv-text-md-tracking);
 }
 
-.nebula-page {
+.uhodim-page {
   display: flex;
   min-height: 100dvh;
   flex-direction: column;
 }
 
-.nebula-page__main {
+.uhodim-page__main {
   flex: 1;
 }
 
-/* ---- NEBULA's own elements. Rules on our own elements need one class; every value is a token. */
+/* ---- Uhodim's own elements. Rules on our own elements need one class; every value is a token. */
 
-.nebula-wordmark {
+.uhodim-wordmark {
   display: inline-flex;
   align-items: center;
   gap: var(--utv-spacing-xs);
@@ -129,49 +129,49 @@ body {
   color: var(--utv-color-content-default);
 }
 
-.nebula-wordmark__mark {
+.uhodim-wordmark__mark {
   width: 28px;
   height: 28px;
-  color: var(--nebula-accent);
+  color: var(--uhodim-accent);
 }
 
-.nebula-hero {
+.uhodim-hero {
   position: relative;
   overflow: hidden;
   padding-block: var(--utv-spacing-3xl);
   border-bottom: 1px solid var(--utv-color-border-default);
   background:
-    radial-gradient(60% 120% at 85% 0%, color-mix(in srgb, var(--nebula-accent-2) 22%, transparent), transparent 70%),
-    radial-gradient(50% 100% at 10% 100%, color-mix(in srgb, var(--nebula-accent) 18%, transparent), transparent 70%),
+    radial-gradient(60% 120% at 85% 0%, color-mix(in srgb, var(--uhodim-accent-2) 22%, transparent), transparent 70%),
+    radial-gradient(50% 100% at 10% 100%, color-mix(in srgb, var(--uhodim-accent) 18%, transparent), transparent 70%),
     var(--utv-color-surface-raised);
 }
 
-.nebula-hero__eyebrow {
+.uhodim-hero__eyebrow {
   display: inline-block;
   padding: var(--utv-spacing-3xs) var(--utv-spacing-xs);
-  border: 1px solid var(--nebula-accent);
+  border: 1px solid var(--uhodim-accent);
   border-radius: var(--utv-radius-sm);
   font: var(--utv-text-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--nebula-accent);
+  color: var(--uhodim-accent);
 }
 
-.nebula-hero__actions {
+.uhodim-hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--utv-spacing-sm);
 }
 
 /* The custom tile: a wrapper that owns the badge's placement and the author line. */
-.nebula-card {
+.uhodim-card {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--utv-spacing-2xs);
 }
 
-.nebula-card__new {
+.uhodim-card__new {
   position: absolute;
   top: var(--utv-spacing-xs);
   left: var(--utv-spacing-xs);
@@ -179,55 +179,55 @@ body {
   pointer-events: none;
   padding: var(--utv-spacing-3xs) var(--utv-spacing-xs);
   border-radius: var(--utv-radius-sm);
-  background: var(--nebula-accent-2);
+  background: var(--uhodim-accent-2);
   color: #16080f;
   font: var(--utv-text-2xs-medium);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.nebula-card__authors {
+.uhodim-card__authors {
   --utv-author-list-content: var(--utv-color-content-secondary);
 }
 
 /* Category page: two large tiles, then the dense grid. */
-.nebula-lead {
+.uhodim-lead {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--utv-spacing-md);
 }
 
 @media (width < 720px) {
-  .nebula-lead {
+  .uhodim-lead {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
-.nebula-section-title {
+.uhodim-section-title {
   display: flex;
   align-items: baseline;
   gap: var(--utv-spacing-sm);
 }
 
-.nebula-section-title__count {
+.uhodim-section-title__count {
   color: var(--utv-color-content-tertiary);
   font: var(--utv-text-sm);
 }
 
 /* Catalog directory: category tiles. */
-.nebula-category-tile__count {
+.uhodim-category-tile__count {
   color: var(--utv-color-content-secondary);
   font: var(--utv-text-sm);
 }
 
 /* Locale switcher: two chip buttons in a form. */
-.nebula-locale {
+.uhodim-locale {
   display: inline-flex;
   align-items: center;
   gap: var(--utv-spacing-2xs);
 }
 
-.nebula-locale__button {
+.uhodim-locale__button {
   all: unset;
   cursor: pointer;
   padding: var(--utv-spacing-3xs) var(--utv-spacing-xs);
@@ -239,28 +239,28 @@ body {
   text-transform: uppercase;
 }
 
-.nebula-locale__button:hover {
+.uhodim-locale__button:hover {
   color: var(--utv-color-content-default);
   border-color: var(--utv-color-border-strong);
 }
 
-.nebula-locale__button[aria-pressed="true"] {
+.uhodim-locale__button[aria-pressed="true"] {
   color: var(--utv-color-content-inverted);
   background: var(--utv-color-container-default);
   border-color: transparent;
 }
 
-.nebula-locale__button:focus-visible {
+.uhodim-locale__button:focus-visible {
   outline: var(--utv-outline-focus);
   outline-offset: var(--utv-outline-focus-offset);
 }
 
-.nebula-notice {
+.uhodim-notice {
   padding-top: var(--utv-spacing-md);
 }
 
 /* Sign-in: the card centred on the page, with room above and below. */
-.nebula-auth {
+.uhodim-auth {
   display: flex;
   justify-content: center;
   align-items: flex-start;

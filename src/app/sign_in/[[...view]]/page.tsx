@@ -11,7 +11,7 @@ import { Box } from "@uscreentv/react";
  */
 export default function SignInPage(props: LoginPageProps) {
   return (
-    <Box className="nebula-auth">
+    <Box className="uhodim-auth">
       <LoginPage {...props} />
     </Box>
   );

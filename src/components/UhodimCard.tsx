@@ -13,13 +13,13 @@ import {
 
 import { useIsNew } from "./newBadge";
 
-export type NebulaCardProps = CategoryCardProps & {
+export type UhodimCardProps = CategoryCardProps & {
   /** A large lead tile: details drawn over the artwork, description included. */
   lead?: boolean;
 };
 
 /**
- * NEBULA's tile, handed to `<Catalog parts>` / `<Category parts>` as `Card` and rendered by the
+ * Uhodim's tile, handed to `<Catalog parts>` / `<Category parts>` as `Card` and rendered by the
  * category body's own grids. It composes the library's card — link, artwork, the duration / episode
  * badge on the poster, the lock and the resume progress all stay — and adds what the standard one
  * lacks: a NEW chip on fresh items and the authors under the title.
@@ -29,7 +29,7 @@ export type NebulaCardProps = CategoryCardProps & {
  * ours. `useCardAppearance()` follows the store-wide card look the way the built-in tile does, so
  * the same component serves the catalog rows and the category grid alike.
  */
-export function NebulaCard(props: NebulaCardProps) {
+export function UhodimCard(props: UhodimCardProps) {
   const { t } = useTranslation();
   const appearance = useCardAppearance();
   const isNew = useIsNew(isSkeletonItem(props) ? "" : props.content.id);
@@ -42,15 +42,15 @@ export function NebulaCard(props: NebulaCardProps) {
   const authors = content.authors ?? [];
 
   return (
-    <Box className="nebula-card">
-      {isNew ? <span className="nebula-card__new">{t("nebula.newBadge")}</span> : null}
+    <Box className="uhodim-card">
+      {isNew ? <span className="uhodim-card__new">{t("uhodim.newBadge")}</span> : null}
       {lead ? (
         <ContentCard {...cardProps} content={content} detailsPlacement="inside" detailed />
       ) : (
         <ContentCard {...cardProps} {...appearance} content={content} />
       )}
       {!lead && authors.length ? (
-        <AuthorList className="nebula-card__authors" authors={authors} size="sm" max={2} />
+        <AuthorList className="uhodim-card__authors" authors={authors} size="sm" max={2} />
       ) : null}
     </Box>
   );

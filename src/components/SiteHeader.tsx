@@ -18,14 +18,14 @@ export async function SiteHeader() {
 
   return (
     <StoreHeader>
-      <StoreHeader.Brand aria-label="NEBULA">
+      <StoreHeader.Brand aria-label="Uhodim">
         <Wordmark />
       </StoreHeader.Brand>
 
       <StoreHeader.Nav>
-        <StoreHeader.NavLink href={routes.catalog}>{t("nebula.nav.home")}</StoreHeader.NavLink>
-        <StoreHeader.NavLink href={routes.categories}>{t("nebula.nav.catalog")}</StoreHeader.NavLink>
-        <StoreHeader.NavLink href={routes.search}>{t("nebula.nav.search")}</StoreHeader.NavLink>
+        <StoreHeader.NavLink href={routes.catalog}>{t("uhodim.nav.home")}</StoreHeader.NavLink>
+        <StoreHeader.NavLink href={routes.categories}>{t("uhodim.nav.catalog")}</StoreHeader.NavLink>
+        <StoreHeader.NavLink href={routes.search}>{t("uhodim.nav.search")}</StoreHeader.NavLink>
       </StoreHeader.Nav>
 
       <StoreHeader.Actions>
@@ -33,7 +33,7 @@ export async function SiteHeader() {
           <Search perPage={20} />
         </StoreHeader.Action>
         <StoreHeader.Action movesToPanel>
-          <LocaleSwitcher label={t("nebula.language")} />
+          <LocaleSwitcher label={t("uhodim.language")} />
         </StoreHeader.Action>
         <StoreHeader.SignInButton />
         <StoreHeader.JoinButton />

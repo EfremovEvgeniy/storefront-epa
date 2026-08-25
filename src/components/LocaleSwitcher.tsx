@@ -14,7 +14,7 @@ export async function LocaleSwitcher({ label }: { label: string }) {
   const current = await getLocale({ locales: LOCALES, defaultLocale: DEFAULT_LOCALE });
 
   return (
-    <form action={switchLocale} className="nebula-locale" aria-label={label}>
+    <form action={switchLocale} className="uhodim-locale" aria-label={label}>
       {LOCALES.map((locale) => (
         <button
           key={locale}
@@ -22,7 +22,7 @@ export async function LocaleSwitcher({ label }: { label: string }) {
           name="locale"
           value={locale}
           lang={locale}
-          className="nebula-locale__button"
+          className="uhodim-locale__button"
           aria-pressed={current === locale}
         >
           {LABELS[locale]}

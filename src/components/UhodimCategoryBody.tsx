@@ -14,19 +14,19 @@ import {
   useTranslation,
 } from "@uscreentv/react";
 
-import { NebulaCard } from "./NebulaCard";
+import { UhodimCard } from "./UhodimCard";
 import { NewBadgeProvider, leadingIds } from "./newBadge";
 
 /** How many items open the page as large tiles before the dense grid takes over. */
 const LEAD_COUNT = 2;
 
 /**
- * The category page in NEBULA's own layout — the built-in header, then the first two items as
+ * The category page in Uhodim's own layout — the built-in header, then the first two items as
  * large tiles, then everything else in the dense grid — assembled from the data `useCategory()`
  * publishes and the links `useFeatureLinks()` resolves, so nothing here talks to the API. Paging,
  * the loading placeholders and the retry footer are the feature's own, wired through `list`.
  */
-export function NebulaCategoryBody() {
+export function UhodimCategoryBody() {
   const { t } = useTranslation();
   const { list, category, orientation, perPage, retry } = useCategory();
   const { categoryContentHref } = useFeatureLinks();
@@ -46,11 +46,11 @@ export function NebulaCategoryBody() {
             {lead.length ? (
               <Stack gap="md">
                 <Heading level={3} as="h2">
-                  {t("nebula.categoryLead")}
+                  {t("uhodim.categoryLead")}
                 </Heading>
-                <Box className="nebula-lead">
+                <Box className="uhodim-lead">
                   {lead.map((item) => (
-                    <NebulaCard
+                    <UhodimCard
                       key={item.id}
                       lead
                       content={item}
@@ -66,13 +66,13 @@ export function NebulaCategoryBody() {
               <Stack gap="md">
                 {gridHasContent ? (
                   <Heading level={3} as="h2">
-                    {t("nebula.categoryMore")}
+                    {t("uhodim.categoryMore")}
                   </Heading>
                 ) : null}
                 {/* With no children the grid renders the localized empty notice itself. */}
                 <ContentGrid orientation={orientation}>
                   {rest.map((item) => (
-                    <NebulaCard
+                    <UhodimCard
                       key={item.id}
                       content={item}
                       href={categoryContentHref(item, category.permalink)}
@@ -81,7 +81,7 @@ export function NebulaCategoryBody() {
                   ))}
                   {list.loadingMore
                     ? Array.from({ length: perPage }, (_, index) => (
-                        <NebulaCard key={`skeleton-${index}`} skeleton orientation={orientation} />
+                        <UhodimCard key={`skeleton-${index}`} skeleton orientation={orientation} />
                       ))
                     : null}
                 </ContentGrid>
