@@ -13,7 +13,7 @@ git clone <repo> && cd storefront-demo
 nvm use                       # or: fnm use — activates 24.11.0
 npm install                   # packages are pinned to exact versions in package.json
 cp .env.example .env.local    # then paste your key (see below)
-npm run dev                   # http://localhost:3000
+npm run dev                   # http://localhost:3002 (port 3000 is left to a local Uscreen API)
 ```
 
 `.env.local`:
@@ -25,6 +25,25 @@ USCREEN_PUBLISHABLE_KEY=usc_pub_live_…
 Take the key from Uscreen → **Settings → Headless API**. With a wrong or missing key every page
 shows the error page (`UscreenApiError: Missing store` / `UscreenConfigError`) — that is the only
 thing that can go wrong on first run.
+
+### Against a local Uscreen (rails)
+
+With the Uscreen monolith running on `uscreen.localhost:3000`, point the SDK at it instead of
+production and use the publishable key of a local store:
+
+```env
+USCREEN_PUBLISHABLE_KEY=usc_pub_live_…            # local store → Settings → Headless API
+USCREEN_API_URL=http://uscreen.localhost:3000/api/headless/v1
+NEXT_PUBLIC_SITE_URL=http://localhost:3002
+```
+
+`npm run dev` / `npm start` bind to **3002** so they never collide with the API on 3000. Handoffs
+(`/join`, `/checkout/…`, `/account/*`) then `307` to `http://<store>.uscreen.localhost:3000/…`.
+Quick check that the key/API pair is right, before starting Next:
+
+```bash
+curl -H "X-Uscreen-Publishable-Key: $USCREEN_PUBLISHABLE_KEY" http://uscreen.localhost:3000/api/headless/v1/store
+```
 
 Other scripts: `npm run build` + `npm start` (production build), `npm run typecheck`,
 `npm run lint`.
